@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
 
-## Getting Started
+Next.js (App Router) で構築したポートフォリオサイトです。
 
-First, run the development server:
+## 技術スタック
+
+- [Next.js 16](https://nextjs.org) — App Router
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Geist Font](https://vercel.com/font)
+
+## ローカル開発
+
+依存パッケージをインストールし、開発サーバーを起動します。
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと結果を確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## フォルダ構成
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+my-portfolio/
+├── app/                        # App Router のルート定義
+│   ├── layout.tsx              # ルートレイアウト（Header / Footer を配置）
+│   ├── page.tsx                # ホームページ (/)
+│   ├── about/
+│   │   └── page.tsx            # About (/about)
+│   ├── projects/
+│   │   ├── page.tsx            # プロジェクト一覧 (/projects)
+│   │   └── [slug]/
+│   │       └── page.tsx        # プロジェクト詳細 (/projects/:slug)
+│   ├── ai-log/
+│   │   └── page.tsx            # AI 開発ログ (/ai-log)
+│   ├── contact/
+│   │   └── page.tsx            # コンタクト (/contact)
+│   └── globals.css             # グローバルスタイル
+├── components/                 # 共通コンポーネント
+│   ├── Header.tsx              # ナビゲーションヘッダー
+│   ├── Footer.tsx              # フッター
+│   └── ProjectCard.tsx         # プロジェクト一覧カード
+└── public/
+    └── images/                 # 静的画像ファイル
+```
 
-## Learn More
+## ページ一覧
 
-To learn more about Next.js, take a look at the following resources:
+| パス | 説明 |
+|---|---|
+| `/` | ホーム |
+| `/about` | 自己紹介 |
+| `/projects` | 制作物一覧 |
+| `/projects/:slug` | 制作物の詳細 |
+| `/ai-log` | AI 活用の開発ログ |
+| `/contact` | お問い合わせ |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## デプロイ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[Vercel](https://vercel.com) へのデプロイを推奨します。GitHub リポジトリを連携するだけで自動デプロイが設定できます。
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+詳細は [Next.js デプロイドキュメント](https://nextjs.org/docs/app/building-your-application/deploying) を参照してください。
